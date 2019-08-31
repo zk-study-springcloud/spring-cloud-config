@@ -3,10 +3,13 @@ server:
 spring:
   application:
     name: config-server
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
+        git:
+          uri: https://github.com/zk-study-springcloud/spring-cloud-config.git
+          search-paths: config-server/src/main/resources/shared
+          # 使用时加上用户名和密码
+          username:
+          password:
+      label: master
